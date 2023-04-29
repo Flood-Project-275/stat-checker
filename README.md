@@ -1,2 +1,2 @@
-# Stat-Checker
+# stat-checker
 Stat checker for ingame statistics.
