@@ -3,18 +3,30 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <script src="index.js"></script>
+        <title>FP275 Stats Checker</title>
     </head>
     <body>
         <div class="leaderboard">
-            <div class="leaderboard-entry">
-                <p>Place #{Place}</p>
-            </div>
+            <h1>Leaderboard</h1>
+            <table id="aaaaaaaaaaaaaaaaaaaaaa">
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Asteroids</th>
+                </tr>
+            </table>
         </div> 
         <div class="lookup">
             <h4 class="lookup-title">Check FP275 Stats</h4>
-            <input class="lookup-username-input" type="text" name="username" placeholder="Roblox Username" required="true" minlength="3" maxlength="20">
-            <br><br>
-            <input type="submit">
+            <input class="lookup-username-input" type="text" id="lookup-username-input" placeholder="Roblox Username" required="true" minlength="3" maxlength="20">
+            <p id="username-input-error"></p>
+            <button type="submit" onclick="DoLookup()">Submit</button>
+            <div class="stats">
+                <h2>Stats</h2>
+                <h3 id="lookup:username">Username: ???</h3>
+                <h3 id="lookup:asteroid-count">Asteroids: ???</h3>
+                <h5>More coming soon! Suggest features by mentioning @littleBitsman#4576!</h5>
+            </div>
         </div>
     </body>
 </html>
