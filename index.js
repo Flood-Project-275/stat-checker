@@ -39,7 +39,15 @@ async function FetchLeaderboard() {
     return f
 }
 async function ShowLeaderboard() {
+    document.getElementById('refresh-leaderboard').disabled = true
     const leaderboardData = await FetchLeaderboard(true)
+    .catch(() => {
+        document.getElementById('refresh-leaderboard').innerHTML = 'Too many requests, try again in around a minute.'
+        setTimeout(() => {
+            document.getElementById('refresh-leaderboard').disabled = false
+            document.getElementById('refresh-leaderboard').innerHTML = 'Refresh Leaderboard'
+        }, 10_000)
+    })
     const Table = document.getElementById('aaaaaaaaaaaaaaaaaaaaaa')
     for (let index = 0; index < Table.childNodes.length; index++) {
         const element = Table.children.item(index)
@@ -63,7 +71,7 @@ async function ShowLeaderboard() {
         const Asteroids = document.createElement('td')
         Rank.innerHTML = element.place
         if (element.name != element.displayName) {
-            Name.innerHTML = `${element.displayName} (@${element.name})`
+            Name.innerHTML = `${element.displayName} (@${element.username})`
         } else {
             Name.innerHTML = element.name
         }
@@ -73,5 +81,6 @@ async function ShowLeaderboard() {
         Row.appendChild(Asteroids)
         Table.appendChild(Row)
     });
+    document.getElementsByClassName('lookup')[0].style.top = `${-(document.getElementById('cringe').clientHeight) + 1}px`
+    document.getElementById('refresh-leaderboard').disabled = false
 }
-ShowLeaderboard()

@@ -19,7 +19,7 @@ div {
     display: table;
     align-items: center;
     position: relative;
-    top: -146px;
+    top: -186px;
 }
 
 #username-input-error {
@@ -44,10 +44,21 @@ input[type="text"].lookup-username-input {
     width: 40%;
 }
 
-button[type="submit"] {
+button {
     padding: 5px;
     background-color: dodgerblue;
     border-radius: 5px;
+}
+
+#refresh-leaderboard {
+    float: right;
+}
+#refresh-leaderboard:disabled {
+    background-color: #999;
+}
+#leaderboard-error {
+    float: right;
+    color: #f00;
 }
 
 table {
