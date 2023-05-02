@@ -54,6 +54,7 @@ async function ShowLeaderboard() {
         const element = Table.children.item(index)
         element.remove()
     }
+    const HeaderRow = document.createElement('tr')
     const RankHeader = document.createElement('th')
     RankHeader.innerHTML = 'Rank'
     const NameHeader = document.createElement('th')
@@ -61,9 +62,10 @@ async function ShowLeaderboard() {
     const AsteroidsHeader = document.createElement('th')
     AsteroidsHeader.innerHTML = 'Asteroids'
 
-    Table.appendChild(RankHeader)
-    Table.appendChild(NameHeader)
-    Table.appendChild(AsteroidsHeader)
+    HeaderRow.appendChild(RankHeader)
+    HeaderRow.appendChild(NameHeader)
+    HeaderRow.appendChild(AsteroidsHeader)
+    Table.appendChild(HeaderRow)
 
     leaderboardData.forEach(element => {
         const Row = document.createElement('tr')
