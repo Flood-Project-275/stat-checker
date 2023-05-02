@@ -1,5 +1,5 @@
 async function LookupUser(username) {
-    const robloxData = await fetch(`https://fp275.azurewebsites.net:443/roblox-redirect/users/lookup/byUsername?username=${username}`, {
+    const robloxData = await fetch(`https://fp275.trafficmanager.net/roblox-redirect/users/lookup/byUsername?username=${username}`, {
         method: 'GET',
         
     }).then((res) => res.json()).catch(() => [])
