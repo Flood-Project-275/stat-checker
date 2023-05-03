@@ -52,6 +52,8 @@ button {
 
 #version {
     text-align: center;
+    color: #FFFFFF;
+    font-size: 20px;
 }
 
 #refresh-leaderboard {
