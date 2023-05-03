@@ -50,6 +50,10 @@ button {
     border-radius: 5px;
 }
 
+#version {
+    text-align: center;
+}
+
 #refresh-leaderboard {
     float: right;
 }
