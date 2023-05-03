@@ -1,5 +1,4 @@
 const version = "v1.0.0"
-
 document.title = `FP275 Stat Checker ${version}`
 
 async function LookupUser(username) {
