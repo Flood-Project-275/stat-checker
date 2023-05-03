@@ -1,6 +1,6 @@
 const version = "v1.0.0"
 document.title = `FP275 Stat Checker ${version}`
-
+document.getElementById("version").innerHTML = version
 async function LookupUser(username) {
     const robloxData = await fetch(`https://fp275.trafficmanager.net/roblox-redirect/users/lookup/byUsername?username=${username}`, {
         method: 'GET',
