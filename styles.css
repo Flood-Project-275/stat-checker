@@ -59,7 +59,7 @@ button {
 #refresh-leaderboard {
     float: right;
 }
-#refresh-leaderboard:disabled {
+button:disabled {
     background-color: #999;
 }
 #leaderboard-error {

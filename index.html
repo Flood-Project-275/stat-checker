@@ -3,11 +3,11 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <script src="index.js"></script>
-        <p id="version"></p>
     </head>
     <body>
+        <p id="version"></p>
         <div class="leaderboard" id="cringe">
-            <button id="refresh-leaderboard" onclick="ShowLeaderboard()">Refresh Leaderboard</button>
+            <button id="refresh-leaderboard" onclick="ShowLeaderboard()" disabled="true">Refresh Leaderboard</button>
             <h1>Leaderboard</h1> 
             <h5>(takes around a minute to update, can only be updated one minute after loading it each time)</h5>
             <table id="aaaaaaaaaaaaaaaaaaaaaa">
@@ -22,11 +22,13 @@
             <h4 class="lookup-title">Check FP275 Stats</h4>
             <input class="lookup-username-input" type="text" id="lookup-username-input" placeholder="Roblox Username" required="true" minlength="3" maxlength="20">
             <p id="username-input-error"></p>
-            <button type="submit" onclick="DoLookup()">Submit</button>
+            <button id="lookup:submit" type="submit" onclick="DoLookup()" disabled="true">Submit</button>
             <div class="stats">
                 <h2>Stats</h2>
                 <h3 id="lookup:username">Username: ???</h3>
                 <h3 id="lookup:asteroid-count">Asteroids: ???</h3>
+                <h3 id="lookup:team-name">Team Name: ???</h3>
+                <h3 id="lookup:team-tag">Team Tag: ???</h3>
                 <h5>More coming soon! Suggest features by mentioning @littleBitsman#4576!</h5>
             </div>
         </div>
