@@ -6,12 +6,13 @@ window.onload = () => {
 }
 document.title = `FP275 Stat Checker ${version}`
 async function LookupUser(username) {
-    const robloxData = await fetch(`https://api.fp275.dev/roblox-redirect/users/lookup/byUsername?username=${username}`, {
-        method: 'GET'
+    const robloxData = await fetch(`https://fp275.trafficmanager.net/roblox-redirect/users/lookup/byUsername?username=${username}`, {
+        method: 'GET',
+        
     }).then((res) => res.json()).catch(() => [])
     if (robloxData.length < 1) return false
     const userId = robloxData['id']
-    const lookupResponse = (await fetch(`https://api.fp275.dev/stats/lookup?userId=${userId}`, {
+    const lookupResponse = (await fetch(`https://api.fp275.dev/stats/lookup/users/${userId}`, {
         method: 'GET'
     }).then((res) => res.json()))
     console.log(lookupResponse)
