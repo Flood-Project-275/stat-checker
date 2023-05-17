@@ -8,7 +8,7 @@ async function LookupUser(username) {
     }).then((res) => res.json()).catch(() => [])
     if (robloxData.length < 1) return false
     const userId = robloxData['id']
-    const lookupResponse = (await fetch(`https://api.fp275.dev/stats/lookup/users/${userId}`, {
+    const lookupResponse = (await fetch(`https://api.fp275.dev/stats/lookup?userId=${userId}`, {
         method: 'GET'
     }).then((res) => res.json()))
     console.log(lookupResponse)
