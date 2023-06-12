@@ -23,18 +23,26 @@ async function DoLookup() {
     document.getElementById('lookup:submit').disabled = true
     document.getElementById('lookup:username').innerHTML = 'Username: ' + username
     document.getElementById('lookup:asteroid-count').innerHTML = 'Asteroids: Loading...'
+    document.getElementById('lookup:team-name').innerHTML = 'Team Name: Loading...'
+    document.getElementById('lookup:team-tag').innerHTML = 'Team Tag: Loading...'
+    document.getElementById('lookup:ranked-rank').innerHTML = 'Ranked Rank: ???'
+    document.getElementById('lookup:ranked-elo').innerHTML = 'Ranked ELO: ???'
     const response = await LookupUser(username)
     if (response == false) {
         document.getElementById('username-input-error').innerHTML = 'Error: Invalid username!'
         document.getElementById('lookup:asteroid-count').innerHTML = 'Asteroids: Error!'
         document.getElementById('lookup:team-name').innerHTML = 'Team Name: Error!'
         document.getElementById('lookup:team-tag').innerHTML = 'Team Tag: Error!'
+        document.getElementById('lookup:ranked-rank').innerHTML = 'Ranked Rank: Error!'
+        document.getElementById('lookup:ranked-elo').innerHTML = 'Ranked ELO: Error!'
         setTimeout(() => {
             document.getElementById('username-input-error').innerHTML = ''
             document.getElementById('lookup:username').innerHTML = 'Username: ???'
             document.getElementById('lookup:asteroid-count').innerHTML = 'Asteroids: ???'
             document.getElementById('lookup:team-name').innerHTML = 'Team Name: ???'
             document.getElementById('lookup:team-tag').innerHTML = 'Team Tag: ???'
+            document.getElementById('lookup:ranked-rank').innerHTML = 'Ranked Rank: ???'
+            document.getElementById('lookup:ranked-elo').innerHTML = 'Ranked ELO: ???'
             document.getElementById('lookup:submit').disabled = false
         }, 3000)
         return
@@ -43,6 +51,7 @@ async function DoLookup() {
     const asteroids = stats.asteroids
 
     const teamData = response.team
+    const ranked = response['ranked-stats']
     document.getElementById('lookup:asteroid-count').innerHTML = 'Asteroids: ' + asteroids.toString()
     if (teamData != undefined) {
         document.getElementById('lookup:team-name').innerHTML = 'Team Name: ' + teamData.name
@@ -50,6 +59,13 @@ async function DoLookup() {
     } else {
         document.getElementById('lookup:team-name').innerHTML = 'Team Name: N/A'
         document.getElementById('lookup:team-tag').innerHTML = 'Team Tag: N/A'
+    }
+    if (ranked != undefined) {
+        document.getElementById('lookup:ranked-rank').innerHTML = 'Ranked Rank: N/A'
+        document.getElementById('lookup:ranked-elo').innerHTML = `Ranked ELO: ${ranked.elo}`
+    } else {
+        document.getElementById('lookup:ranked-rank').innerHTML = 'Ranked Rank: N/A'
+        document.getElementById('lookup:ranked-elo').innerHTML = 'Ranked ELO: N/A'
     }
     document.getElementById('lookup:submit').disabled = false
 }
