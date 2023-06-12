@@ -6,7 +6,7 @@ window.onload = () => {
 }
 document.title = `FP275 Stat Checker ${version}`
 async function LookupUser(username) {
-    const robloxData = await fetch(`https://fp275.trafficmanager.net/roblox-redirect/users/lookup/byUsername?username=${username}`, {
+    const robloxData = await fetch(`https://api.fp275.dev/roblox-redirect/users/lookup/byUsername?username=${username}`, {
         method: 'GET',
         
     }).then((res) => res.json()).catch(() => [])
@@ -25,8 +25,8 @@ async function DoLookup() {
     document.getElementById('lookup:asteroid-count').innerHTML = 'Asteroids: Loading...'
     document.getElementById('lookup:team-name').innerHTML = 'Team Name: Loading...'
     document.getElementById('lookup:team-tag').innerHTML = 'Team Tag: Loading...'
-    document.getElementById('lookup:ranked-rank').innerHTML = 'Ranked Rank: ???'
-    document.getElementById('lookup:ranked-elo').innerHTML = 'Ranked ELO: ???'
+    document.getElementById('lookup:ranked-rank').innerHTML = 'Ranked Rank: Loading...'
+    document.getElementById('lookup:ranked-elo').innerHTML = 'Ranked ELO: Loading...'
     const response = await LookupUser(username)
     if (response == false) {
         document.getElementById('username-input-error').innerHTML = 'Error: Invalid username!'
