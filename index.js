@@ -51,7 +51,7 @@ async function DoLookup() {
     const asteroids = stats.asteroids
 
     const teamData = response.team
-    const ranked = response['ranked-stats']
+    const ranked = stats['ranked-stats']
     document.getElementById('lookup:asteroid-count').innerHTML = 'Asteroids: ' + asteroids.toString()
     if (teamData != undefined) {
         document.getElementById('lookup:team-name').innerHTML = 'Team Name: ' + teamData.name
