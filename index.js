@@ -6,7 +6,7 @@ window.onload = () => {
 }
 document.title = `FP275 Stat Checker ${version}`
 async function LookupUser(username) {
-    const robloxData = await fetch(`https://api.fp275.dev/roblox-redirect/users/lookup/byUsername?username=${username}`, {
+    const robloxData = await fetch(`https://api.fp275.dev/roblox-redirect/users/lookup/${username}`, {
         method: 'GET',
         
     }).then((res) => res.json()).catch(() => [])
